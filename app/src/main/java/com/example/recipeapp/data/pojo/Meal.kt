@@ -1,7 +1,6 @@
-package com.example.easyfood.data.pojo
+package com.example.recipeapp.data.pojo
 
 import androidx.room.Entity
-import androidx.room.PrimaryKey
 
 @Entity(tableName = "favorites")
 data class Meal(

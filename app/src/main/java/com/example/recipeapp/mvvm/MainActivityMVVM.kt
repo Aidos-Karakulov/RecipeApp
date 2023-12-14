@@ -1,9 +1,9 @@
-package com.example.easyfood.mvvm
+package com.example.recipeapp.mvvm
 
 import android.util.Log
 import androidx.lifecycle.*
-import com.example.easyfood.data.pojo.*
-import com.example.easyfood.data.retrofit.RetrofitInstance
+import com.example.recipeapp.data.pojo.*
+import com.example.recipeapp.data.retrofit.RetrofitInstance
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
