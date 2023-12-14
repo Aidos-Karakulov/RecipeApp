@@ -11,23 +11,27 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MealActivityMVVM():ViewModel() {
+class MealActivityMVVM() : ViewModel() {
     private var mutableMeal = MutableLiveData<List<Meal>>()
 
-    fun getMealsByCategory(category:String){
-        RetrofitInstance.foodApi.getMealsByCategory(category).enqueue(object : Callback<MealsResponse>{
-            override fun onResponse(call: Call<MealsResponse>, response: Response<MealsResponse>) {
-                mutableMeal.value = response.body()!!.meals
-            }
+    fun getMealsByCategory(category: String) {
+        RetrofitInstance.foodApi.getMealsByCategory(category)
+            .enqueue(object : Callback<MealsResponse> {
+                override fun onResponse(
+                    call: Call<MealsResponse>,
+                    response: Response<MealsResponse>
+                ) {
+                    mutableMeal.value = response.body()!!.meals
+                }
 
-            override fun onFailure(call: Call<MealsResponse>, t: Throwable) {
-                Log.d(TAG,t.message.toString())
-            }
+                override fun onFailure(call: Call<MealsResponse>, t: Throwable) {
+                    Log.d(TAG, t.message.toString())
+                }
 
-        })
+            })
     }
 
-    fun observeMeal():LiveData<List<Meal>>{
+    fun observeMeal(): LiveData<List<Meal>> {
         return mutableMeal
     }
 }

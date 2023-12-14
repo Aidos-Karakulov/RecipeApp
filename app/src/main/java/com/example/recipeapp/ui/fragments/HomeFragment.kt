@@ -73,36 +73,29 @@ class HomeFragment : Fragment() {
         onRandomLongClick()
 
 
-        mainFragMVVM.observeMealByCategory().observe(viewLifecycleOwner, object : Observer<MealsResponse> {
-            override fun onChanged(t: MealsResponse?) {
-                val meals = t!!.meals
-                setMealsByCategoryAdapter(meals)
-                cancelLoadingCase()
-            }
+        mainFragMVVM.observeMealByCategory().observe(viewLifecycleOwner
+        ) { t ->
+            val meals = t!!.meals
+            setMealsByCategoryAdapter(meals)
+            cancelLoadingCase()
+        }
 
+        mainFragMVVM.observeCategories().observe(viewLifecycleOwner
+        ) { t ->
+            val categories = t!!.categories
+            setCategoryAdapter(categories)
+        }
 
-        })
-
-        mainFragMVVM.observeCategories().observe(viewLifecycleOwner, object : Observer<CategoryResponse> {
-            override fun onChanged(t: CategoryResponse?) {
-                val categories = t!!.categories
-                setCategoryAdapter(categories)
-
-            }
-        })
-
-        mainFragMVVM.observeRandomMeal().observe(viewLifecycleOwner, object : Observer<RandomMealResponse> {
-            override fun onChanged(t: RandomMealResponse?) {
-                val mealImage = view.findViewById<ImageView>(R.id.img_random_meal)
-                val imageUrl = t!!.meals[0].strMealThumb
-                randomMealId = t.meals[0].idMeal
-                Glide.with(this@HomeFragment)
-                    .load(imageUrl)
-                    .into(mealImage)
-                meal = t
-            }
-
-        })
+        mainFragMVVM.observeRandomMeal().observe(viewLifecycleOwner
+        ) { t ->
+            val mealImage = view.findViewById<ImageView>(R.id.img_random_meal)
+            val imageUrl = t!!.meals[0].strMealThumb
+            randomMealId = t.meals[0].idMeal
+            Glide.with(this@HomeFragment)
+                .load(imageUrl)
+                .into(mealImage)
+            meal = t
+        }
 
         mostPopularFoodAdapter.setOnClickListener(object : OnItemClick {
             override fun onItemClick(meal: Meal) {
@@ -171,13 +164,10 @@ class HomeFragment : Fragment() {
 
     private fun onRandomLongClick() {
 
-        binding.randomMeal.setOnLongClickListener(object : View.OnLongClickListener {
-            override fun onLongClick(p0: View?): Boolean {
-                detailMvvm.getMealByIdBottomSheet(randomMealId)
-                return true
-            }
-
-        })
+        binding.randomMeal.setOnLongClickListener {
+            detailMvvm.getMealByIdBottomSheet(randomMealId)
+            true
+        }
     }
 
     private fun showLoadingCase() {
