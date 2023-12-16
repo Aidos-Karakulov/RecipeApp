@@ -1,4 +1,4 @@
-package com.example.recipeapp.ui.fragments
+package com.example.recipeapp.ui
 
 import android.content.Intent
 import android.os.Bundle

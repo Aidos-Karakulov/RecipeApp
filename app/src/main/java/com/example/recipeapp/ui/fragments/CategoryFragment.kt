@@ -1,4 +1,4 @@
-package com.example.easyfood.ui.fragments
+package com.example.recipeapp.ui.fragments
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.easyfood.R
+import com.example.recipeapp.R
 
 
 class CategoryFragment : Fragment(
