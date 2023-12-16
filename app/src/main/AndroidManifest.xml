@@ -19,7 +19,7 @@
             android:name=".ui.activites.MealDetailesActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.recipeapp.MainActivity"
+            android:name=".ui.activites.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
