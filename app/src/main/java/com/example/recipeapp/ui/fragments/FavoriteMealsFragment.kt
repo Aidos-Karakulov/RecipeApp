@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recipeapp.R
 import com.example.recipeapp.adapters.FavoriteMealsRecyclerAdapter
+import com.example.recipeapp.data.pojo.Meal
 import com.example.recipeapp.data.pojo.MealDB
 import com.example.recipeapp.data.pojo.MealDetail
 import com.example.recipeapp.databinding.FragmentFavoriteMealsBinding

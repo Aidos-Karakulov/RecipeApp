@@ -14,11 +14,11 @@
             android:id="@+id/action_homeFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
     </fragment>
-<!--    <fragment-->
-<!--        android:id="@+id/favoriteMeals"-->
-<!--        android:name="com.example.ui.FavoriteMeals"-->
-<!--        android:label="fragment_favorite_meals"-->
-<!--        tools:layout="@layout/fragment_favorite_meals" />-->
+    <fragment
+        android:id="@+id/favoriteMeals"
+        android:name="com.example.recipeapp.ui.FavoriteMeals"
+        android:label="fragment_favorite_meals"
+        tools:layout="@layout/fragment_favorite_meals" />
     <fragment
         android:id="@+id/categoryFragment"
         android:name="com.example.recipeapp.ui.fragments.CategoryFragment"
